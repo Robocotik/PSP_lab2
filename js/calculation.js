@@ -1,21 +1,36 @@
+import {extend} from './extend.js';
+import {light} from './light.js';
+
 window.onload = function () {
+  light();
+  extend();
   let a = '';
   let b = '';
   let expressionResult = '';
   let selectedOperation = null;
-  outputElement = document.querySelector('.screen');
-  digitButtons = document.querySelectorAll('[id ^= "btn_digit_"]');
-
+  const outputElement = document.querySelector('#screen');
+  const digitButtons = document.querySelectorAll('[id ^= "btn_digit_"]');
   function onDigitButtonClicked(digit) {
-    if (!selectedOperation) {
-      if (digit != '.' || (digit == '.' && !a.includes(digit)) || a != '0') {
-        a += digit;
+    if (a == '0' || b == '0') {
+      if (a == '0') {
+        a = digit;
+        outputElement.innerHTML = a || 0;
       }
-      outputElement.innerHTML = a || 0;
-    } else {
-      if (digit != '.' || (digit == '.' && !b.includes(digit)) || b != '0') {
-        b += digit;
+      if (b == '0') {
+        b = digit;
         outputElement.innerHTML = b || 0;
+      }
+    } else {
+      if (!selectedOperation) {
+        if (digit != '.' || (digit == '.' && !a.includes(digit))) {
+          a += digit;
+        }
+        outputElement.innerHTML = a || 0;
+      } else {
+        if (digit != '.' || (digit == '.' && !b.includes(digit))) {
+          b += digit;
+          outputElement.innerHTML = b || 0;
+        }
       }
     }
   }
@@ -80,6 +95,7 @@ window.onload = function () {
       b = b.length > 1 ? b.slice(0, b.length - 1) : 0;
       outputElement.innerHTML = b;
     }
+    console.log('a:' + a + ';b:' + b + ';res:' + expressionResult);
   };
 
   // кнопка расчёта результата
