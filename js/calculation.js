@@ -1,6 +1,14 @@
 import {extend} from './extend.js';
 import {light} from './light.js';
 
+const fact = n => {
+  let res = 1;
+  for (let i = 2; i <= n; i++) {
+    res *= n;
+  }
+  return res;
+};
+
 window.onload = function () {
   light();
   extend();
@@ -64,6 +72,25 @@ window.onload = function () {
     if (a === '') return;
     selectedOperation = '/';
     console.log(selectedOperation);
+  };
+
+  document.querySelector('#btn_op_sqrt').onclick = function () {
+    if (a === '') return;
+    a = Math.sqrt(a);
+    expressionResult = a;
+    outputElement.innerHTML = a;
+  };
+  document.querySelector('#btn_op_sqr').onclick = function () {
+    if (a === '') return;
+    a = a ** 2;
+    expressionResult = a;
+    outputElement.innerHTML = a;
+  };
+  document.querySelector('#btn_op_fact').onclick = function () {
+    if (a === '') return;
+    a = fact(a);
+    expressionResult = a;
+    outputElement.innerHTML = a;
   };
 
   document.querySelector('#btn_op_ost').onclick = function () {
