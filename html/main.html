@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../css/main.css">
+    <link rel="stylesheet" href="./../js/main.js" lazy>
+    <link rel="stylesheet" href="./../js/calculation.js" lazy>
+    <title>calc</title>
+</head>
+
+
+<body>
+    <main>
+        <div class='row'>
+            <div class='col1'>
+                <div class='screen'>0</div>
+                <div class='grid'>
+                    <div id='btn_op_clear' class='button lightGray'>C</div>
+                    <div id='btn_op_minus_plus' class='button lightGray'>+/-</div>
+                    <div id ='btn_op_ost' class='button lightGray'>%</div>
+                    <div id='btn_op_div' class='button orange'>/</div>
+                    <div id='btn_digit_7' class='button gray'>7</div>
+                    <div id='btn_digit_8' class='button gray'>8</div>
+                    <div id='btn_digit_9' class='button gray'>9</div>
+                    <div id='btn_op_mult' class='button orange'>X</div>
+                    <div id='btn_digit_4' class='button gray'>4</div>
+                    <div id='btn_digit_5' class='button gray'>5</div>
+                    <div id='btn_digit_6' class='button gray'>6</div>
+                    <div id='btn_op_minus' class='button orange'>-</div>
+                    <div id='btn_digit_1' class='button gray'>1</div>
+                    <div id='btn_digit_2' class='button gray'>2</div>
+                    <div id='btn_digit_3' class='button gray'>3</div>
+                    <div id='btn_op_plus' class='button orange'>+</div>
+                    <div id='btn_digit_0' class='button gray'>0</div>
+                    <div class='button gray'>.</div>
+                    <div id='btn_op_equal' class='button orange big'>=</div>
+                    <div id='btn_op_back' class='button orange enormous'>backspace</div>
+                </div>
+                <div class="text">
+                    ЛР выполнена Старкиным А.А.
+                </div>
+            </div>
+            <div class='col2'>
+                <div id='dropdown' class="dropdown">
+                    <div id="author" class='text'>Автор</div>
+                    <div class="dropdown-content">
+                        <img src="./../src/me.jpg" style='width: 100%; height: 100%; border-radius: 10px'
+                            alt="мое фото">
+                        <h1>Старкин А.А. ИУ5-42Б</h1>
+                    </div>
+                </div>
+                <a href="https://github.com/Robocotik?" target="_blank" class='text'>Github</a>
+            </div>
+        </div>
+    </main>
+    <video controls class='move' autoplay loop muted>
+        <source src="./../src/doc.mp4" type="video/mp4" />
+    </video>
+    <script src="./../js/main.js"></script>
+    <script src="./../js/calculation.js"></script>
+</body>
+
+</html>
