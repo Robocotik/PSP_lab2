@@ -4,7 +4,7 @@ import {light} from './light.js';
 const fact = n => {
   let res = 1;
   for (let i = 2; i <= n; i++) {
-    res *= n;
+    res *= i;
   }
   return res;
 };
@@ -14,6 +14,7 @@ window.onload = function () {
   extend();
   let a = '';
   let b = '';
+  let sequence = '';
   let expressionResult = '';
   let selectedOperation = null;
   const outputElement = document.querySelector('#screen');
@@ -86,6 +87,7 @@ window.onload = function () {
     expressionResult = a;
     outputElement.innerHTML = a;
   };
+
   document.querySelector('#btn_op_fact').onclick = function () {
     if (a === '') return;
     a = fact(a);
@@ -127,22 +129,34 @@ window.onload = function () {
 
   // кнопка расчёта результата
   document.querySelector('#btn_op_equal').onclick = function () {
+    console.log(sequence, a, b, expressionResult);
+    if (selectedOperation == null && b == '' && sequence != '') {
+      expressionResult = +a + +sequence;
+      a = expressionResult;
+      outputElement.innerHTML = a;
+      return;
+    }
     if (a === '' || b === '' || !selectedOperation) return;
     switch (selectedOperation) {
       case 'x':
         expressionResult = +a * +b;
+        sequence = '';
         break;
       case '+':
         expressionResult = +a + +b;
+        sequence = '+' + b;
         break;
       case '-':
         expressionResult = +a - +b;
+        sequence = '-' + b;
         break;
       case '/':
         expressionResult = +a / +b;
+        sequence = '';
         break;
       case '%':
         expressionResult = +a % +b;
+        sequence = '';
         break;
     }
     a = expressionResult.toString();
